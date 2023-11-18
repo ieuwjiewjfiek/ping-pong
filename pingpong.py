@@ -68,7 +68,7 @@ class Player(GameSprite):
 #    asteroid = Enemy('asteroid.png', randint(20,600), 0, randint(1,2), 50, 50)
 #    asteroids.add(asteroid)
 #
-ball = GameSprite('ball.png',300, 180, 6,80, 80)
+ball = GameSprite('ball.png',300, 180, 4,60, 60)
 player1 = Player('racetka.png', 10, 20, 6, 40, 140)
 player2 = Player('racetka.png', 650, 20, 6, 40, 140)
 speed_x = 3
@@ -114,8 +114,10 @@ while game:
         ball.reset()
         player2.update_r()
         player2.reset()
-        if ball.rect.y > 430 or ball.rect.y < 0:
-            speed_y *= -1
+    if ball.rect.y > 430 or ball.rect.y < 0:
+        speed_y *= -1
+    if sprite.collide_rect(player1, ball) or sprite.collide_rect(player2, ball):
+        speed_x *= -1 
 #        monsters.update()
 #        monsters.draw(window)
 #
