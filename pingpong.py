@@ -71,7 +71,8 @@ class Player(GameSprite):
 ball = GameSprite('ball.png',300, 180, 6,80, 80)
 player1 = Player('racetka.png', 10, 20, 6, 40, 140)
 player2 = Player('racetka.png', 650, 20, 6, 40, 140)
-
+speed_x = 3
+speed_y = 3
 while game:
     for e in event.get():
         if e.type == QUIT:
@@ -103,14 +104,18 @@ while game:
     if finish != True:
 
         
-        
         window.blit(background,(0, 0))
+        
+        ball.rect.x += speed_x
+        ball.rect.y += speed_y
 
         player1.update_l()
         player1.reset()
         ball.reset()
         player2.update_r()
         player2.reset()
+        if ball.rect.y > 430 or ball.rect.y < 0:
+            speed_y *= -1
 #        monsters.update()
 #        monsters.draw(window)
 #
