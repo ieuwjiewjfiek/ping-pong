@@ -68,6 +68,7 @@ class Player(GameSprite):
 #    asteroid = Enemy('asteroid.png', randint(20,600), 0, randint(1,2), 50, 50)
 #    asteroids.add(asteroid)
 #
+ball = GameSprite('ball.png',300, 180, 6,80, 80)
 player1 = Player('racetka.png', 10, 20, 6, 40, 140)
 player2 = Player('racetka.png', 650, 20, 6, 40, 140)
 
@@ -107,6 +108,7 @@ while game:
 
         player1.update_l()
         player1.reset()
+        ball.reset()
         player2.update_r()
         player2.reset()
 #        monsters.update()
